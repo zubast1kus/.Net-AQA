@@ -20,6 +20,7 @@
 //*Задание 2а:
 //  1.Вместо заданий 2 - 4, Определить переменные в класс, реализовать конструктор и метод вывода
 
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -231,19 +232,21 @@ namespace Task_1
     
     class Bug
     {
-        int id;
-        DateTime creationDate = DateTime.Now;
-        Priority priority = new Priority();
-        string summary;
-        string precondition;
-        Status status = new Status();
-        int testCaseId;
-        int stepNumber;
-        string actualResult;
-        string expectedResult;
+        public int id { get; set; }
+        public DateTime creationDate { get; set; }
+        public Priority priority { get; set; }
+        
+        public string summary { get; set; }
+        public string precondition { get; set; }
+        public Status status { get; set; }
+        
+        public int testCaseId { get; set; }
+        public int stepNumber { get; set; }
+        public string actualResult { get; set; }
+        public string expectedResult { get; set; }
         public Bug()
         {
-
+            this.creationDate = DateTime.Now;
         }
         public Bug(int id,
                    string summary,
@@ -279,6 +282,64 @@ namespace Task_1
             "actualResult = {8},\n " +
             "expectedResult = {9}", 
             id, creationDate, priority, summary, precondition, status, testCaseId, stepNumber, actualResult, expectedResult);
+    }
+
+    class Step
+    {
+        public int number { get; set; } 
+        public int action { get; set; }
+        public int result { get; set; }
+        public static int cntr = 0;
+
+        public Step()
+        {
+            Step.cntr++;
+            this.number = Step.cntr;
+        }
+
+        public Step ( int action, int result)
+        {            
+            this.action = action;
+            this.result = result;
+            Step.cntr++;
+            this.number = Step.cntr;
+        }
+
+    }
+    class TestCase
+    {
+        public int id { get; set; }
+        public DateTime creationDate { get; set; }
+        public Priority priority { get; set; }
+        public string summary { get; set; }
+        public string precondition { get; set; }
+        public Status status { get; set; }
+
+        public List<Step> steps = new List<Step>();
+        public static int cntr = 0;
+
+        public TestCase ()
+        {
+            TestCase.cntr++;
+            this.id = TestCase.cntr;
+            this.creationDate = DateTime.Now;
+        }
+
+        public TestCase(string summary,
+                        string precondition,
+                        Priority priority,
+                        Status status,
+                        List<Step> steps)
+        {            
+            this.creationDate = DateTime.Now;
+            this.summary = summary;
+            this.priority = priority;
+            this.precondition = precondition;
+            this.status = status;
+            TestCase.cntr++;
+            this.id = TestCase.cntr;
+            this.steps = steps;
+        }
     }
     public enum Priority
     {
