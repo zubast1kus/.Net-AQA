@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Task_3.Enums;
 
 namespace Task_3.TestingUtils
 {
@@ -73,6 +73,26 @@ namespace Task_3.TestingUtils
         public static void SortTestCaseBySummary(List<TestCase> testCases)
         {
             testCases.Sort((a, b) => a.summary.CompareTo(b.summary));
+        }
+        public static void FiltrBugsByStatus(List<Bug> bugs, Status status)
+        {
+            foreach(Bug bug in bugs)
+            {
+                if (status.Equals(bug.status))
+                {
+                    bug.ShowInfo();
+                }
+            }
+        }
+        public static void FiltrTestCaseByStatus(List<TestCase> testCases, Status status)
+        {
+            foreach( TestCase test in testCases)
+            {
+                if (status.Equals(test.status))
+                {
+                    test.ShowInfo();
+                }
+            }
         }
     }
 }
