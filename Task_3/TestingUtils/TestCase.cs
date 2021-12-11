@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Task_2.Enums;
+using Task_3.Enums;
 
-namespace Task_2.TestingUtils
+namespace Task_3.TestingUtils
 {
-    class TestCase : CommonInfo
+    class TestCase : Issue
     {
         public int id { get; set; }
         public List<Step> steps;
@@ -33,7 +33,7 @@ namespace Task_2.TestingUtils
             while (true)
             {
                 bool flag = false;                
-                Console.WriteLine("Do you want to add new step? \n 1 - Yes, Anything else - No ");
+                Console.WriteLine("Do you want to add new step? \n 1 - Yes, Anything else - No ");                
                 int temp;
                 if (int.TryParse(Console.ReadLine(), out temp))
                 {                    
@@ -54,8 +54,8 @@ namespace Task_2.TestingUtils
                 else
                 {
                     Console.WriteLine("Incorect input! Please repeat entering");
-                }
-                
+                }                
+
             }
             
         }

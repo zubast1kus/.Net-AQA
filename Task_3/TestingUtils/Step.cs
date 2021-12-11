@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Task_2.TestingUtils
+namespace Task_3.TestingUtils
 {
     class Step
     {

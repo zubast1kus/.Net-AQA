@@ -1,9 +1,14 @@
 ﻿using System;
-using Task_2.Enums;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Task_3.Enums;
+using Task_3.Interfaces;
 
-namespace Task_2.TestingUtils
+namespace Task_3.TestingUtils
 {
-    abstract class CommonInfo
+    abstract class Issue : IIssue
     {
         public static int cntr = 0;
         public DateTime creationDate { get; set; }
@@ -12,14 +17,14 @@ namespace Task_2.TestingUtils
         public string summary { get; set; }
         public string precondition { get; set; }
         public Status status { get; set; }
-               
-                
-        public CommonInfo()
+
+
+        public Issue()
         {
             creationDate = DateTime.Now;
         }
 
-        public CommonInfo(string summary,
+        public Issue(string summary,
                           string precondition,
                           Priority priority,
                           Status status)
@@ -30,6 +35,7 @@ namespace Task_2.TestingUtils
             this.precondition = precondition;
             this.status = status;
         }
+
         public virtual void ShowInfo() => Console.WriteLine($"creationDate = {creationDate},\npriority = {priority},\nsummary = {summary},\nprecondition = {precondition},\nstatus = {status}");
         public virtual void SetInfo()
         {

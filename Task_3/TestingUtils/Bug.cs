@@ -1,9 +1,9 @@
 ﻿using System;
-using Task_2.Enums;
+using Task_3.Enums;
 
-namespace Task_2.TestingUtils
+namespace Task_3.TestingUtils
 {
-    class Bug : CommonInfo
+    class Bug : Issue
     {
         public int id { get; set; }
         public int testCaseId { get; set; }
@@ -38,35 +38,35 @@ namespace Task_2.TestingUtils
         {            
             base.SetInfo();
 
-            //while (true)
-            //{
-            //    Console.WriteLine("Set testCaseId");
-            //    int temp;
-            //    if (int.TryParse(Console.ReadLine(), out temp))
-            //    {
-            //        testCaseId = temp;
-            //        break;
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("Incorect input! Please repeat entering");
-            //    }
-            //}
+            while (true)
+            {
+                Console.WriteLine("Set testCaseId");
+                int temp;
+                if (int.TryParse(Console.ReadLine(), out temp))
+                {
+                    testCaseId = temp;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Incorect input! Please repeat entering");
+                }
+            }
 
-            //while (true)
-            //{
-            //    Console.WriteLine("Set stepNumber");
-            //    int temp;
-            //    if (int.TryParse(Console.ReadLine(), out temp))
-            //    {
-            //        stepNumber = temp;
-            //        break;
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("Incorect input! Please repeat entering");
-            //    }
-            //}
+            while (true)
+            {
+                Console.WriteLine("Set stepNumber");
+                int temp;
+                if (int.TryParse(Console.ReadLine(), out temp))
+                {
+                    stepNumber = temp;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Incorect input! Please repeat entering");
+                }
+            }
 
 
             Console.WriteLine("Set actualResult");

@@ -1,37 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using Task_2.Enums;
-using Task_2.TestingUtils;
+using Task_3.Enums;
+using Task_3.TestingUtils;
 
-namespace Task_2
+namespace Task_3
 {
     internal class Program
     {
         public static void Main(string[] args)
         {
 
-            Console.WriteLine("Task 2");
+            Console.WriteLine("Task 3");
 
             List<Bug> bugs = new List<Bug>();
             List<TestCase> testCases = new List<TestCase>();
 
             while (true)
-            {
-                Console.WriteLine("\nPleass enter your choice: \n1 - Add new Bug, \n2 - Remove Bug, \n3 - Show all Bugs, \n4 - Add new Test case, \n5 - Remove Test case, \n6 - Show all Test cases, \nAnything else - exit");
-
-                int temp = 0;
+            {                
+                int choice = Actions.Choose(new string[] { "Add new Bug", "Remove Bug", "Show all Bugs", "Add new Test case", "Remove Test case", "Show all Test cases" });                
                 bool flag = true;
-                int id;
-                int.TryParse(Console.ReadLine(), out temp);  
-                Console.Clear();    
-                switch (temp)
+                int id;                
+                Console.Clear();
+                switch (choice)
                 {
                     case 1:
                         Bug bug = new Bug();
                         bug.SetInfo();
                         bugs.Add(bug);
                         break;
-                    case 2:                        
+                    case 2:
                         while (true)
                         {
                             Console.WriteLine("Please enter bug`s id");
@@ -47,10 +44,10 @@ namespace Task_2
                         bugs.RemoveAll((Bug bug) => bug.id == id);
                         break;
                     case 3:
-                        
+
                         foreach (Bug bugg in bugs)
                         {
-                            bugg.ShowInfo();                            
+                            bugg.ShowInfo();
                         }
                         break;
                     case 4:
@@ -75,10 +72,10 @@ namespace Task_2
                         testCases.RemoveAll((TestCase test) => test.id == id);
                         break;
                     case 6:
-                        
+
                         foreach (TestCase testt in testCases)
                         {
-                            testt.ShowInfo();                            
+                            testt.ShowInfo();
                         }
                         break;
                     default:
