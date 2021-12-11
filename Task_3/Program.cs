@@ -17,16 +17,14 @@ namespace Task_3
 
             while (true)
             {                
-                int choice = Actions.Choose(new string[] { "Add new Bug", "Remove Bug", "Show all Bugs", "Add new Test case", "Remove Test case", "Show all Test cases" });                
+                int choice = Actions.Choose(new string[] { "Add new Bug", "Remove Bug", "Show all Bugs", "Add new Test case", "Remove Test case", "Show all Test cases", "Show bug by id", "Show test case by id", "Sort Bugs By Summary", "Sort Test Case By Summary" });                
                 bool flag = true;
                 int id;                
                 Console.Clear();
                 switch (choice)
                 {
                     case 1:
-                        Bug bug = new Bug();
-                        bug.SetInfo();
-                        bugs.Add(bug);
+                        Services.AddBug(bugs);
                         break;
                     case 2:
                         while (true)
@@ -41,22 +39,15 @@ namespace Task_3
                                 Console.WriteLine("Incorect input! Please repeat entering");
                             }
                         }
-                        bugs.RemoveAll((Bug bug) => bug.id == id);
+                        Services.RemoveBug(bugs, id);   
                         break;
                     case 3:
-
-                        foreach (Bug bugg in bugs)
-                        {
-                            bugg.ShowInfo();
-                        }
+                        Services.ShowAllBugs(bugs);
                         break;
                     case 4:
-                        TestCase test = new TestCase();
-                        test.SetInfo();
-                        testCases.Add(test);
+                        Services.AddTestCase(testCases);    
                         break;
                     case 5:
-
                         while (true)
                         {
                             Console.WriteLine("Please enter Test case`s id");
@@ -69,14 +60,46 @@ namespace Task_3
                                 Console.WriteLine("Incorect input! Please repeat entering");
                             }
                         }
-                        testCases.RemoveAll((TestCase test) => test.id == id);
+                        Services.RemoveTestCase(testCases, id); 
                         break;
                     case 6:
-
-                        foreach (TestCase testt in testCases)
+                        Services.ShowAllTestCase(testCases);
+                        break;
+                    case 7:
+                        while (true)
                         {
-                            testt.ShowInfo();
+                            Console.WriteLine("Please enter Bug`s id");
+                            if (int.TryParse(Console.ReadLine(), out id))
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Incorect input! Please repeat entering");
+                            }
                         }
+                        Services.ShowBugById(bugs, id);
+                        break;
+                    case 8:
+                        while (true)
+                        {
+                            Console.WriteLine("Please enter Test case`s id");
+                            if (int.TryParse(Console.ReadLine(), out id))
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Incorect input! Please repeat entering");
+                            }
+                        }
+                        Services.ShowTestCaseById(testCases, id);
+                        break;
+                    case 9:
+                        Services.SortBugsBySummary(bugs);
+                        break;
+                    case 10:
+                        Services.SortTestCaseBySummary(testCases);
                         break;
                     default:
                         flag = false;
