@@ -17,9 +17,19 @@ namespace Task_3
 
             while (true)
             {
-                int choice = Actions.Choose(new string[] { "Add new Bug", "Remove Bug", "Show all Bugs", "Add new Test case",
-                    "Remove Test case", "Show all Test cases", "Show bug by id", "Show test case by id",
-                    "Sort Bugs By Summary", "Sort Test Case By Summary", "Filter Bug By Status", "Filter Test Case By Status" });
+                int choice = Actions.Choose(new string[] { 
+                    "Add new Bug", 
+                    "Remove Bug", 
+                    "Show all Bugs", 
+                    "Add new Test case",
+                    "Remove Test case", 
+                    "Show all Test cases", 
+                    "Show bug by id", 
+                    "Show test case by id",
+                    "Sort Bugs By Summary", 
+                    "Sort Test Case By Summary", 
+                    "Filter Bug By Status", 
+                    "Filter Test Case By Status" });
                 bool flag = true;
                 int id;
                 Console.Clear();
